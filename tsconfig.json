@@ -29,6 +29,6 @@
     "**/*.cjs",
     "**/*.mjs",
     "jest.config.ts",
-    "test-utils.ts"  ],
+    ],
   "exclude": ["node_modules"]
 }

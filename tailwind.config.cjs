@@ -1,5 +1,5 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
-const { withAnimations } = require('animated-tailwindcss')
+// const { withAnimations } = require('animated-tailwindcss')
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -29,4 +29,5 @@ const config = {
   plugins: [],
 };
 
-module.exports = withAnimations({ config });
+module.exports = config
+// module.exports = withAnimations({ config });

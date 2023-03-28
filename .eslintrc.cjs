@@ -18,8 +18,8 @@ const config = {
   parserOptions: {
     project: path.join(__dirname, "tsconfig.json"),
   },
-  plugins: ["@typescript-eslint"],
-  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  plugins: ["@typescript-eslint", "jest-dom",],
+  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:jest-dom/recommended", "plugin:testing-library/react"],
   rules: {
     "@typescript-eslint/consistent-type-imports": [
       "warn",

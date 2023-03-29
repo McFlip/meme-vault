@@ -3,21 +3,11 @@ import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import { useState } from "react"
 
-// TODO: move mocking to test
-const mockdata = ['fubar', 'bohica']
 
-// TODO: move mocking to test
-const getSearchResults = (qstr: string) => {
-  if (qstr === '') return []
-  return mockdata.filter(s => s.includes(qstr))
-}
+type T_getSearchResults = (qstr: string) => string[]
+type T_selectTag = (tag: string) => { status: number }
 
-// TODO: move mocking to test
-const selectTag = async (tag: string) => {
-  return { status: 200 }
-}
-
-export function SearchBar() {
+export function SearchBar({ getSearchResults, selectTag }: { getSearchResults: T_getSearchResults, selectTag: T_selectTag }) {
   const [qstr, setQstr] = useState('')
   const [tags, setTags] = useState([''])
 

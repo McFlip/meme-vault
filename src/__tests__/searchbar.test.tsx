@@ -8,7 +8,18 @@ import userEvent from '@testing-library/user-event'
 
 describe('Search Bar', () => {
   it('displays search results', async () => {
-    render(<SearchBar />)
+    const mockdata = ['fubar', 'bohica']
+
+    const getSearchResults = jest.fn().mockImplementation((qstr: string) => {
+      if (qstr === '') return []
+      return mockdata.filter(s => s.includes(qstr))
+    })
+
+    const selectTag = jest.fn().mockImplementation(async (tag: string) => {
+      return { status: 200 }
+    })
+
+    render(<SearchBar getSearchResults={getSearchResults} selectTag={selectTag} />)
     const user = userEvent.setup()
     await user.type(screen.getByLabelText('Search for tags'), 'fubar')
     const fubar = await screen.findByRole('button', { name: /fubar/i, })

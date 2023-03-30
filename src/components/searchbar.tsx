@@ -4,7 +4,7 @@ import { Label } from "~/components/ui/label"
 import { useState } from "react"
 
 
-type T_getSearchResults = (qstr: string) => string[]
+type T_getSearchResults = (qstr: string) => { tags: string[] }
 type T_selectTag = (tag: string) => { status: number }
 
 export function SearchBar({ getSearchResults, selectTag }: { getSearchResults: T_getSearchResults, selectTag: T_selectTag }) {
@@ -13,7 +13,7 @@ export function SearchBar({ getSearchResults, selectTag }: { getSearchResults: T
 
   const handleSearchInputChange = (value: HTMLInputElement['value']) => {
     setQstr(value)
-    setTags(getSearchResults(value))
+    setTags(getSearchResults(value).tags)
   }
 
   const handleTagClick = async (tag: string) => {

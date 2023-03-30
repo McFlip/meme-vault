@@ -6,7 +6,7 @@ const Test: NextPage = () => {
     <>
       <MainMenu />
       <h1>FUBAR</h1>
-      <SearchBar getSearchResults={(s) => ['stub search']} selectTag={(s) => { return { status: 200 } }} />
+      <SearchBar getSearchResults={(s) => ({ tags: ['stub search'] })} selectTag={(s) => ({ status: 200 })} />
     </>
   )
 }

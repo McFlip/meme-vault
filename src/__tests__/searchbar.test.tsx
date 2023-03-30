@@ -11,8 +11,8 @@ describe('Search Bar', () => {
     const mockdata = ['fubar', 'bohica']
 
     const getSearchResults = jest.fn().mockImplementation((qstr: string) => {
-      if (qstr === '') return []
-      return mockdata.filter(s => s.includes(qstr))
+      if (qstr === '') return { tags: [] }
+      return { tags: mockdata.filter(s => s.includes(qstr)) }
     })
 
     const selectTag = jest.fn().mockImplementation(async (tag: string) => {

@@ -19,7 +19,7 @@ describe('Search Bar', () => {
       return { status: 200 }
     })
 
-    render(<SearchBar getSearchResults={getSearchResults} selectTag={selectTag} />)
+    render(<SearchBar selectTag={selectTag} />)
     const user = userEvent.setup()
     await user.type(screen.getByLabelText('Search for tags'), 'fubar')
     const fubar = await screen.findByRole('button', { name: /fubar/i, })

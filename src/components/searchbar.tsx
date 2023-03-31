@@ -5,13 +5,12 @@ import { useState } from "react"
 import { api } from "~/utils/api";
 
 
-type T_getSearchResults = (qstr: string) => ({ tags: string[] } | undefined)
 type T_selectTag = (tag: string) => { status: number }
 
 // TODO: Refactor select tag prop to useState hook
 // TEST: Mock useQuery - CORS blocks request in test env
 // TODO: Remove getSearchResults prop
-export function SearchBar({ getSearchResults, selectTag }: { getSearchResults: T_getSearchResults, selectTag: T_selectTag }) {
+export function SearchBar({ selectTag }: { selectTag: T_selectTag }) {
   const [qstr, setQstr] = useState('')
   // const [tags, setTags] = useState([''])
   const { data, isLoading, isError } = api.tags.getSearchResults.useQuery({ qstr }, { enabled: !!qstr })

@@ -8,8 +8,6 @@ import { api } from "~/utils/api";
 type T_selectTag = (tag: string) => { status: number }
 
 // TODO: Refactor select tag prop to useState hook
-// TEST: Mock useQuery - CORS blocks request in test env
-// TODO: Remove getSearchResults prop
 export function SearchBar({ selectTag }: { selectTag: T_selectTag }) {
   const [qstr, setQstr] = useState('')
   // const [tags, setTags] = useState([''])

@@ -3,7 +3,7 @@ import { AppRouter, appRouter } from "~/server/api/root"
 import { inferProcedureInput } from '@trpc/server'
 
 describe('Tags Router', () => {
-  it('replies to hello', async () => {
+  it('searches tags by query string', async () => {
     const ctx = createInnerTRPCContext({})
     const caller = appRouter.createCaller(ctx)
     const input: inferProcedureInput<AppRouter['tags']['getSearchResults']> = {

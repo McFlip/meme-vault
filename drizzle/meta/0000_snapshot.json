@@ -1,0 +1,53 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "29306609-e644-459d-8ad3-2faaf61c2cdd",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "meme_tags": {
+      "name": "meme_tags",
+      "schema": "",
+      "columns": {
+        "meme_url": {
+          "name": "meme_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag": {
+          "name": "tag",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'NO TAG'"
+        }
+      },
+      "indexes": {
+        "tag_idx": {
+          "name": "tag_idx",
+          "columns": [
+            "tag"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "meme_tags_meme_url_tag": {
+          "name": "meme_tags_meme_url_tag",
+          "columns": [
+            "meme_url",
+            "tag"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

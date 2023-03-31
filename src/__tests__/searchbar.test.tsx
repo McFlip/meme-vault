@@ -3,7 +3,7 @@ import React from 'react'
 import { setupServer } from 'msw/node'
 import { render, waitForElementToBeRemoved, screen, mswTrpc } from '~/test-utils'
 import '@testing-library/jest-dom'
-import { SearchBar } from '~/components/searchbar'
+import SearchBar from '~/components/testdrivers/searchbar' // wraps SearchBar w/ hooks
 import userEvent from '@testing-library/user-event'
 import { inferProcedureInput } from '@trpc/server'
 import type { AppRouter } from '~/server/api/root'
@@ -28,13 +28,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+
 describe('Search Bar', () => {
   it('displays search results', async () => {
-    const selectTag = jest.fn().mockImplementation(async (tag: string) => {
-      return { status: 200 }
-    })
-
-    render(<SearchBar selectTag={selectTag} />)
+    render(<SearchBar />)
     const user = userEvent.setup()
     await user.type(screen.getByLabelText('Search for tags'), 'fubar')
     const fubar = await screen.findByRole('button', { name: /fubar/i, })

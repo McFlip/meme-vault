@@ -3,6 +3,7 @@ import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import { Dispatch, SetStateAction, useState } from "react"
 import { api } from "~/utils/api";
+import { Search } from "lucide-react";
 
 export function SearchBar({ selectedTags, selectTag }: { selectedTags: string[], selectTag: Dispatch<SetStateAction<string[]>> }) {
   const [qstr, setQstr] = useState('')
@@ -32,7 +33,10 @@ export function SearchBar({ selectedTags, selectTag }: { selectedTags: string[],
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor="searchbar">Search for tags</Label>
-      <Input type="search" id="searchbar" value={qstr} onChange={e => handleSearchInputChange(e.target.value)} />
+      <span className="inline-flex">
+        <Search className="gap-4" />
+        <Input type="search" id="searchbar" value={qstr} onChange={e => handleSearchInputChange(e.target.value)} />
+      </span>
       <div>
         {isError && (<p>Error getting tags</p>)}
         {isLoading && qstr != '' && (<p>Searching...</p>)}

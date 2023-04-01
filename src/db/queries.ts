@@ -1,5 +1,5 @@
 import { db } from "./conn"
-import {eq, like, or} from "drizzle-orm/expressions"
+import {and, eq, like, or} from "drizzle-orm/expressions"
 // import type { MemeTag, NewMemeTag } from "./schema"
 import { memeTags } from "./schema"
 
@@ -8,5 +8,5 @@ export const dbGetMemesByTags = async (tags:string[]) => {
   const orExpression = tags.map(tag => eq(memeTags.tag, tag))
   return await db.select({meme_url: memeTags.memeUrl})
     .from(memeTags)
-    .where(or(...orExpression))
+    .where(and(...orExpression))
 }

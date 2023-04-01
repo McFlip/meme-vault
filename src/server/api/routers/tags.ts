@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { dbSearchTags } from "~/db/queries";
+import { dbSearchTags, dbGetMemesByTags } from "~/db/queries";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
@@ -12,4 +12,12 @@ export const tagsRouter = createTRPCRouter({
         tags: res.map(row => row.tag),
       };
     }),
+  getMemesByTags: publicProcedure
+    .input(z.object({ tags: z.array(z.string())}))
+    .query(async ({input}) => {
+      const res = await dbGetMemesByTags(input.tags)
+      return {
+        memes: res.map(row => row.meme_url)
+      }
+    })
 });

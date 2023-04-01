@@ -30,7 +30,7 @@ export function Carousel({ memes }: { memes: string[] }) {
             aria-roledescription="slide"
             aria-label="1 of 6">
             <div className="container">
-              <img src={memes[slideIdx]} alt="Meme Slide" />
+              {memes[slideIdx] && <img src={memes[slideIdx]} alt="Meme Slide" />}
             </div>
           </div>
         </div>

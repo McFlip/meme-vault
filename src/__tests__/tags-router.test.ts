@@ -7,12 +7,12 @@ describe('Tags Router', () => {
   const caller = appRouter.createCaller(ctx)
   it('searches tags by query string', async () => {
     const input: inferProcedureInput<AppRouter['tags']['getSearchResults']> = {
-      qstr: 'fu'
+      qstr: 'fub'
     }
     const expected = 'fubar'
     const actual = await caller.tags.getSearchResults(input)
     expect(actual.tags[0]).toBe(expected)
-    expect(actual.tags).toHaveLength(5)
+    expect(actual.tags).toHaveLength(1)
   })
   it('gets all memes matching tag filters', async () => {
     const input: inferProcedureInput<AppRouter['tags']['getMemesByTags']> = {

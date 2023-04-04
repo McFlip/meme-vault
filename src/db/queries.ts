@@ -3,7 +3,10 @@ import {and, eq, like, or} from "drizzle-orm/expressions"
 // import type { MemeTag, NewMemeTag } from "./schema"
 import { memeTags } from "./schema"
 
-export const dbSearchTags = async (qstr: string) => await db.select({tag: memeTags.tag}).from(memeTags).where(like(memeTags.tag, `%${qstr}%`))
+export const dbSearchTags = async (qstr: string) => {
+  const unique = new Set((await db.select({tag: memeTags.tag}).from(memeTags).where(like(memeTags.tag, `%${qstr}%`))).map(row => row.tag))
+  return [...unique]
+}
 export const dbGetMemesByTags = async (tags:string[]) => {
   // run 1 sub-query per tag
   const subQueriesPromise = tags.map(async tag => await db.select({meme_url: memeTags.memeUrl}).from(memeTags).where(eq(memeTags.tag, tag)))

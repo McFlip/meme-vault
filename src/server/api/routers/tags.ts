@@ -9,7 +9,7 @@ export const tagsRouter = createTRPCRouter({
     .query(async ({ input }) => {
       const res = await dbSearchTags(input.qstr)
       return {
-        tags: res.map(row => row.tag),
+        tags: res
       };
     }),
   getMemesByTags: publicProcedure

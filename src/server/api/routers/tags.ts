@@ -17,7 +17,7 @@ export const tagsRouter = createTRPCRouter({
     .query(async ({input}) => {
       const res = await dbGetMemesByTags(input.tags)
       return {
-        memes: res.map(row => row.meme_url)
+        memes: res
       }
     })
 });

@@ -7,31 +7,31 @@ const resetDb = async () => {
   await db.insert(memeTags)
     .values(
       {
-        memeUrl: 'https://pbs.twimg.com/media/Et1kXL0XMAUj5Iw?format=jpg&name=small',
+        memeUrl: '/img/doom_eternal.jpg',
         tag: 'fubar'
       },
       {
-        memeUrl: 'https://i.ytimg.com/vi/ris-1JmOg-U/maxresdefault.jpg',
+        memeUrl: '/img/doom_lore.jpg',
         tag: 'bohica'
       },
       {
-        memeUrl: 'https://preview.redd.it/tnl3actbwk651.png?auto=webp&s=a1bcfc72a69e355a23f860f2e20b9ed85033665c',
+        memeUrl: '/img/doom_unicorn.jpg',
         tag: 'fubar'
       },
       {
-        memeUrl: 'https://preview.redd.it/tnl3actbwk651.png?auto=webp&s=a1bcfc72a69e355a23f860f2e20b9ed85033665c',
+        memeUrl: '/img/doom_unicorn.jpg',
         tag: 'snafu'
       },
       {
-        memeUrl: 'https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/',
+        memeUrl: '/img/doom_meow.jpg',
         tag: 'fubar'
       },
       {
-        memeUrl: 'https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/',
+        memeUrl: '/img/doom_meow.jpg',
         tag: 'snafu'
       },
       {
-        memeUrl: 'https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/',
+        memeUrl: '/img/doom_meow.jpg',
         tag: 'wtf'
       },
     )

@@ -21,13 +21,13 @@ SET row_security = off;
 --
 
 COPY public.meme_tags (meme_url, tag) FROM stdin;
-https://pbs.twimg.com/media/Et1kXL0XMAUj5Iw?format=jpg&name=small       fubar
-https://i.ytimg.com/vi/ris-1JmOg-U/maxresdefault.jpg    bohica
-https://preview.redd.it/tnl3actbwk651.png?auto=webp&s=a1bcfc72a69e355a23f860f2e20b9ed85033665c  fubar
-https://preview.redd.it/tnl3actbwk651.png?auto=webp&s=a1bcfc72a69e355a23f860f2e20b9ed85033665c  snafu
-https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/ fubar
-https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/ snafu
-https://forums.frontier.co.uk/attachments/doom_meow-jpg.300893/ wtf
+/img/doom_eternal.jpg       fubar
+/img/doom_lore.jpg    bohica
+/img/doom_unicorn.jpg  fubar
+/img/doom_unicorn.jpg  snafu
+/img/doom_meow.jpg fubar
+/img/doom_meow.jpg snafu
+/img/doom_meow.jpg wtf
 \.
 
 

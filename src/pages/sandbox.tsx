@@ -8,7 +8,6 @@ import { Carousel } from "~/components/carousel";
 
 const Test: NextPage = () => {
   const [selectedTags, selectTag] = useState<string[]>([])
-  // const memes = ['https://pbs.twimg.com/media/Ee283STUYAAsRHZ.jpg', 'https://pbs.twimg.com/media/Et1kXL0XMAUj5Iw?format=jpg&name=small', 'https://i.ytimg.com/vi/ris-1JmOg-U/maxresdefault.jpg']
   const { data } = api.tags.getMemesByTags.useQuery({ tags: selectedTags }, { enabled: selectedTags.length > 0 })
   return (
     <>

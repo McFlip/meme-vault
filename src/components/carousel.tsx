@@ -1,8 +1,7 @@
 "use client"
 import { useState } from "react"
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react"
-// import Image from 'next/image'
-// TODO: move test images to localhost and config for Image https://beta.nextjs.org/docs/optimizing/images
+import Image from 'next/image'
 
 export function Carousel({ memes }: { memes: string[] }) {
   const [slideIdx, setSlideIdx] = useState(0)
@@ -35,9 +34,7 @@ export function Carousel({ memes }: { memes: string[] }) {
             aria-roledescription="slide"
             aria-label={`${slideIdx + 1} of ${memes.length}`}>
             <div className="container">
-              {memes[slideIdx] && <img src={memes[slideIdx]} alt="Meme Slide" />}
-              {/* TODO: move images to localhost and config for Image https://beta.nextjs.org/docs/optimizing/images */}
-              {/*               {memes[slideIdx] && <Image src={memes[slideIdx] || ''} width={500} height={700} alt="Meme Slide" />} */}
+              {memes[slideIdx] && <Image src={memes[slideIdx] || ''} width={500} height={700} alt="Meme Slide" />}
             </div>
           </div>
         </div>

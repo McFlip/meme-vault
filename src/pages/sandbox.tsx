@@ -13,7 +13,6 @@ const Test: NextPage = () => {
     <>
       <main className="flex flex-col flex-wrap flex-none items-start content-center justify-start min-h-screen bg-gradient-to-b from-slate-600 to-red-900">
         <MainMenu />
-        <h1>FUBAR</h1>
         <div>
           <SearchBar selectedTags={selectedTags} selectTag={selectTag} />
         </div>

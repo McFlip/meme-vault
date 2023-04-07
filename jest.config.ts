@@ -14,6 +14,7 @@ const customJestConfig: jest.Config = {
   testEnvironment: "jest-environment-jsdom",
   globalSetup: "<rootDir>/src/db/testSetup.ts",
   globalTeardown: "<rootDir>/src/db/testTeardown.ts",
+  preset: "ts-jest",
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

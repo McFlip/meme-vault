@@ -7,7 +7,6 @@ import { ReactNode } from 'react';
 import superjson from "superjson";
 import { createTRPCMsw } from 'msw-trpc'
 import type { AppRouter } from '~/server/api/root'
-import resetDb from '~/db/resetDB'
 
 const url = `http://localhost:${process.env.PORT ?? 3000}/api/trpc`;
 
@@ -40,8 +39,3 @@ export const mswTrpc = createTRPCMsw<AppRouter>({
     output: superjson
   }
 })
-
-// Reset the DB before & after each test suite.
-// Disable these if running all tests
-beforeAll(resetDb)
-afterAll(resetDb)

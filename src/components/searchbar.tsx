@@ -31,7 +31,7 @@ export function SearchBar({ selectedTags, selectTag }: { selectedTags: string[],
   }
 
   return (
-    <div className="grid grid-cols-1 grid-rows-2">
+    <div className="relative">
       <div className="grid gap-1.5">
         <Label htmlFor="searchbar">Search for tags</Label>
         <span className="inline-flex">
@@ -39,12 +39,10 @@ export function SearchBar({ selectedTags, selectTag }: { selectedTags: string[],
           <Input type="search" id="searchbar" value={qstr} onChange={e => handleSearchInputChange(e.target.value)} />
         </span>
       </div>
-      <div className="relative">
-        <div className="absolute top-0">
-          {isError && (<p>Error getting tags</p>)}
-          {isLoading && qstr != '' && (<p>Searching...</p>)}
-          {!!data && listTags(data.tags.filter(t => !selectedTags.includes(t)))}
-        </div>
+      <div className="absolute top-[60px]">
+        {isError && (<p>Error getting tags</p>)}
+        {isLoading && qstr != '' && (<p>Searching...</p>)}
+        {!!data && listTags(data.tags.filter(t => !selectedTags.includes(t)))}
       </div>
     </div>
   )

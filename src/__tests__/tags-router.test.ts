@@ -66,4 +66,20 @@ describe("Tags Router", () => {
       expect(actual).toContainEqual(expectedMeow)
     }
   )
+  describe("dbGetAvailableTags", () => {
+    const testCases = [
+      [["fubar"], ["snafu", "wtf"]],
+      [["fubar", "snafu"], ["wtf"]],
+      [["fubar", "snafu", "wtf"], []],
+    ]
+    it.each(testCases)(
+      "given selected tags, gets available tags for drilling down the path",
+      async (selectedTags, expected) => {
+        const { tags: actual } = await caller.tags.getAvailableTags({
+          selectedTags,
+        })
+        expect(actual).toEqual(expected)
+      }
+    )
+  })
 })

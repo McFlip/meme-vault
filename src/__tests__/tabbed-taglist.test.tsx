@@ -1,5 +1,6 @@
 import { TabbedTagList } from "~/components/tabbed-taglist"
 import { TagList } from "~/components/tag-list"
+import { SelectedTag } from "~/components/selected-tag"
 import { render, screen, waitForElementToBeRemoved } from "~/test-utils"
 import userEvent from "@testing-library/user-event"
 
@@ -11,8 +12,20 @@ describe("Tabbed Tag List", () => {
   it("displays available tags by default", async () => {
     render(
       <TabbedTagList
-        availableTags={<TagList tags={availableTags} handleClick={select} />}
-        selectedTags={<TagList tags={selectedTags} handleClick={deselect} />}
+        availableTags={
+          <TagList>
+            {availableTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={select} />
+            ))}
+          </TagList>
+        }
+        selectedTags={
+          <TagList>
+            {selectedTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={deselect} />
+            ))}
+          </TagList>
+        }
       />
     )
 
@@ -27,8 +40,20 @@ describe("Tabbed Tag List", () => {
   it("toggles between selected and available tags", async () => {
     render(
       <TabbedTagList
-        availableTags={<TagList tags={availableTags} handleClick={select} />}
-        selectedTags={<TagList tags={selectedTags} handleClick={deselect} />}
+        availableTags={
+          <TagList>
+            {availableTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={select} />
+            ))}
+          </TagList>
+        }
+        selectedTags={
+          <TagList>
+            {selectedTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={deselect} />
+            ))}
+          </TagList>
+        }
       />
     )
 
@@ -51,8 +76,20 @@ describe("Tabbed Tag List", () => {
   it("integrates the click handler into the tags", async () => {
     render(
       <TabbedTagList
-        availableTags={<TagList tags={availableTags} handleClick={select} />}
-        selectedTags={<TagList tags={selectedTags} handleClick={deselect} />}
+        availableTags={
+          <TagList>
+            {availableTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={select} />
+            ))}
+          </TagList>
+        }
+        selectedTags={
+          <TagList>
+            {selectedTags.map((tag, i) => (
+              <SelectedTag key={i} tag={tag} handleClick={deselect} />
+            ))}
+          </TagList>
+        }
       />
     )
     const user = userEvent.setup()

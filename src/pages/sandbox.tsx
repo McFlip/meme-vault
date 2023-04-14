@@ -6,6 +6,7 @@ import { api } from "~/utils/api"
 import { TagList } from "~/components/tag-list"
 import { Carousel } from "~/components/carousel"
 import { TabbedTagList } from "~/components/tabbed-taglist"
+import { SelectedTag } from "~/components/selected-tag"
 
 const Test: NextPage = () => {
   const [selectedTags, selectTag] = useState<string[]>([])
@@ -27,18 +28,30 @@ const Test: NextPage = () => {
         <div>
           <TabbedTagList
             availableTags={
-              <TagList
-                tags={availableTags ? availableTags.tags : []}
-                handleClick={(tag) => selectTag([...selectedTags, tag])}
-              />
+              <TagList>
+                {availableTags === undefined
+                  ? null
+                  : availableTags.tags.map((t, i) => (
+                      <SelectedTag
+                        key={i}
+                        tag={t}
+                        handleClick={(tag) => selectTag([...selectedTags, tag])}
+                      />
+                    ))}
+              </TagList>
             }
             selectedTags={
-              <TagList
-                tags={selectedTags}
-                handleClick={(tag) =>
-                  selectTag(selectedTags.filter((t) => t != tag))
-                }
-              />
+              <TagList>
+                {selectedTags.map((t, i) => (
+                  <SelectedTag
+                    key={i}
+                    tag={t}
+                    handleClick={(tag) =>
+                      selectTag(selectedTags.filter((t) => t != tag))
+                    }
+                  />
+                ))}
+              </TagList>
             }
           />
         </div>

@@ -20,7 +20,7 @@ const Test: NextPage = () => {
   )
   return (
     <>
-      <main className="grid min-h-screen auto-rows-min grid-cols-4 items-start gap-4 place-self-start bg-gradient-to-b from-slate-600 to-red-900">
+      <main className="grid min-h-screen w-screen auto-cols-min auto-rows-min grid-cols-4 items-start gap-2 place-self-start overflow-x-clip bg-gradient-to-b from-slate-600 to-red-900">
         <div className="col-span-4 rounded-xl border-2 border-white p-3">
           <div className="relative flex flex-row flex-wrap md:justify-center">
             <div className="md:absolute md:left-1">
@@ -29,10 +29,10 @@ const Test: NextPage = () => {
             <SearchBar selectedTags={selectedTags} selectTag={selectTag} />
           </div>
         </div>
-        <div className="col-span-3 rounded-xl border-2 border-white p-5">
+        <div className="col-span-4 rounded-xl border-2 border-white p-5 md:col-span-3">
           {!!memeResults && <Carousel memes={memeResults.memes} />}
         </div>
-        <div className="col-span-1 rounded-xl border-2 border-white">
+        <div className="invisible col-span-1 min-w-[200px] rounded-xl border-2 border-white sm:invisible md:visible lg:visible">
           <TabbedTagList
             availableTags={
               <TagList>

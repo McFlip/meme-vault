@@ -13,19 +13,19 @@ interface props {
  */
 export function TabbedTagList({ availableTags, selectedTags }: props) {
   return (
-    <Tabs defaultValue="available" className="w-[400px]">
+    <Tabs defaultValue="available" className="flex flex-col">
       <TabsList>
         <TabsTrigger value="available">Drill Down</TabsTrigger>
         <TabsTrigger value="selected">Back Up</TabsTrigger>
       </TabsList>
       <TabsContent value="available">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-200">
           Select a tag to drill down in your search
         </p>
         {availableTags}
       </TabsContent>
       <TabsContent value="selected">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-200">
           Select a tag to remove it from the search
         </p>
         {selectedTags}

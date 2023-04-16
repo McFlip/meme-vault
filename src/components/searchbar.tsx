@@ -41,9 +41,11 @@ export function SearchBar({
   }
 
   return (
-    <div className="relative">
+    <div className="relative min-w-[50%] ">
       <div className="grid gap-1.5">
-        <Label htmlFor="searchbar">Search for tags</Label>
+        <Label htmlFor="searchbar" className="text-slate-200">
+          Search for tags
+        </Label>
         <span className="inline-flex">
           <Search className="mr-1" />
           <Input

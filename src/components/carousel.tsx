@@ -41,7 +41,7 @@ export function Carousel({ memes }: { memes: string[] }) {
           >
             <ArrowBigRight />
           </button>
-          <span className="flex flex-row flex-wrap">
+          <span className="flex flex-row flex-wrap items-center">
             <span className="mr-2 max-h-6 rounded border border-blue-400 bg-blue-100 px-2.5 py-1 text-xs font-medium text-blue-800 dark:bg-gray-700 dark:text-blue-400">
               {memes[slideIdx] && slideIdx + 1}
             </span>
